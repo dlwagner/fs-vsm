@@ -1,9 +1,14 @@
 This is a basic fullstack learning project using:
 
-   1. VueJS for front end
-   2. Spring-boot starter for backend
-   3. MySQL DB for the database (any db will do, but I'm using MySQL)
+   1. VueJS - client
+   2. Spring-boot starter - server
+   3. MySQL - database
 
-The backend is done. 
+I used this tutorial to build the server:
 
-TODO: Build the font end with VueJS.
+[https://spring.io/guides/gs/accessing-data-mysql/#scratch]
+
+I am following this tutorial as a guide to build the client:
+
+[https://grokonez.com/frontend/vue-js/spring-boot-vue-js-example-spring-data-jpa-rest-mysql-crud]
+
