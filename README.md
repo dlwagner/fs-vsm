@@ -1,6 +1,6 @@
-###VueJS + Spring + MySQL Fullstack 
+### VueJS + Spring + MySQL Fullstack 
 
-#####This is a basic fullstack learning project using:
+##### This is a basic fullstack learning project using:
 
    1. VueJS - client
    2. Spring-boot starter - server
