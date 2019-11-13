@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### using this tutorial as a guide to help build frontend:
+### https://grokonez.com/frontend/vue-js/spring-boot-vue-js-example-spring-data-jpa-rest-mysql-crud

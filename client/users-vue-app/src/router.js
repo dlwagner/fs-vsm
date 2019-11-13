@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import UsersList from "./components/UsersList.vue";
+import AddUser from "./components/AddUser.vue";
 import User from "./components/User.vue";
-import { truncate } from "fs";
 
 Vue.use(Router);
 
