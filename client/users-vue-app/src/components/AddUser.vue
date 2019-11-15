@@ -41,11 +41,11 @@ export default {
     saveUser() {
       var data = {
         name: this.user.name,
-        age: this.user.email
+        email: this.user.email
       };
  
       http
-        .post("/user", data)
+        .post("/add", data)
         .then(response => {
           this.user.id = response.data.id;
           console.log(response.data);
