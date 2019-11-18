@@ -57,17 +57,12 @@ export default {
       .then(response => (this.users = response.data))
     },
     addUser() {
-
-      let name1 = this.name; 
-      let email1 = this.email; 
       
-      let parms = "name="+name1+"&email="+email1;
-      axios.post(`http://localhost:8080/demo/add?`+parms)
+      axios.post(`http://localhost:8080/demo/add?name=`+this.name+`&email=`+this.email)
       .then((response) => {
                console.log(response);
             });
-            console.log(name1, email1);
-    },
+    }
   },
   created() {
         this.retrieveAllUsers();
