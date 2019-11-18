@@ -58,70 +58,15 @@ export default {
     },
     addUser() {
 
-     /* axios.post('http://localhost:8080/demo/add', {
-        name: 'Fred',
-        email: 'Flintstone'
-      })
-      .then(function (response) {
-      console.log(response);
-      })
-      .catch(function (error) {
-      console.log(error);
-      });*/
-
-      /*axios({
-        method: 'post',
-        url: 'http://localhost:8080/demo/add',
-        data: {
-        name: 'Fred',
-        email: 'Flintstone'
-        }
-      });*/
-
-      /*axios.post('baseURL', {
-      name: 'Finn',
-      email: 'Williams'
-      });*/
-
-      let name1 = "name=" + String(this.name);
-      let email1 = "email=" + String(this.email);
-
-      //let name1 = "name=" + this.name;
-      //let email1 = "email=" + this.email;
+      let name1 = this.name; 
+      let email1 = this.email; 
       
-      //console.log(name1, email1);
-
-      //let pd = [`${name1}`, `${email1}`];
-      let pd = [name1, email1];
-      console.log(pd);
-
-      axios({
-        method: 'post',
-        url: "http://localhost:8080/demo/add",
-        payload: pd
-      }).then((response) => {
-               console.log(response);
-            });
-            
-      
-     /* axios.post(`http://localhost:8080/demo/add?name=name1&email=email1`)
+      let parms = "name="+name1+"&email="+email1;
+      axios.post(`http://localhost:8080/demo/add?`+parms)
       .then((response) => {
                console.log(response);
             });
-            console.log(name1, email1);*/
-
-      
-
-      /*axios.post(`http://localhost:8080/demo/add`, {
-      name: name1,
-      email: email1
-      }).then((response) => {
-               console.log(response);
-            
-      })
-    console.log(this.name);*/
-
-
+            console.log(name1, email1);
     },
   },
   created() {
