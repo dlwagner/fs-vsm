@@ -11,13 +11,15 @@
                             <th>Id</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="user in users" v-bind:key="user.id">
+                          <tr v-for="(user, index) in users" v-bind:key="index">
                             <td>{{user.id}}</td>
                             <td>{{user.name}}</td>
                             <td>{{user.email}}</td>
+                            <td><button class="btn btn-warning" v-on:click="deleteUser(user.id, index)">Delete</button></td>
                           </tr>
                       </tbody>
                     </table>
@@ -57,11 +59,25 @@ export default {
       .then(response => (this.users = response.data))
     },
     addUser() {
-      
       axios.post(`http://localhost:8080/demo/add?name=`+this.name+`&email=`+this.email)
       .then((response) => {
                console.log(response);
             });
+
+      axios.get('http://localhost:8080/demo/all')
+      .then(response => (this.users = response.data))
+
+      this.name = "";
+      this.email = "";
+    },
+    deleteUser(id, index) {
+      axios.post(`http://localhost:8080/demo/delete?id=`+id)
+      .then((response) => {
+        this.users.splice(index, 1)
+        console.log(response);
+      });
+      console.log(id);
+      console.log(index);  
     }
   },
   created() {

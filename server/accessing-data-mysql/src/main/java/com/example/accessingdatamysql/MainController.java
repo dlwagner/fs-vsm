@@ -43,5 +43,11 @@ public class MainController {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
 	}
+	
+	@PostMapping(path="/delete")
+	public @ResponseBody String deleteUser (@RequestParam Integer id) {
+		userRepository.deleteById(id);
+		return "deleted";
+	}
 
 }
