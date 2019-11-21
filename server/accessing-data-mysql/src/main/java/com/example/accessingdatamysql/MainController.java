@@ -1,5 +1,7 @@
 package com.example.accessingdatamysql;
 
+import java.util.Optional;
+
 /*
  * This controller class handles http requests. 
  *
@@ -8,9 +10,11 @@ package com.example.accessingdatamysql;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,6 +52,21 @@ public class MainController {
 	public @ResponseBody String deleteUser (@RequestParam Integer id) {
 		userRepository.deleteById(id);
 		return "deleted";
+	}
+	
+	@PutMapping(path="/update")
+	public @ResponseBody ResponseEntity<Object> updateUser(@RequestParam String name, @RequestParam String email, @RequestParam Integer id) {
+		
+		Optional<User> userOptional = userRepository.findById(id);
+		if (!userOptional.isPresent())
+			return ResponseEntity.notFound().build();
+		
+		User user = new User();
+		user.setId(id);
+		user.setName(name);
+		user.setEmail(email);
+		userRepository.save(user);
+		return ResponseEntity.noContent().build();
 	}
 
 }
