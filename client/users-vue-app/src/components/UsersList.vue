@@ -12,14 +12,16 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Delete</th>
+                            <th>Update</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr v-for="(user, index) in users" v-bind:key="index">
                             <td>{{user.id}}</td>
-                            <td>{{user.name}}</td>
-                            <td>{{user.email}}</td>
+                            <td contenteditable='true'>{{user.name}}</td>
+                            <td contenteditable='true'>{{user.email}}</td>
                             <td><button class="btn btn-warning" v-on:click="deleteUser(user.id, index)">Delete</button></td>
+                            <td><button class="btn btn-success" v-on:click="EditUser(user.id, index)">Edit</button></td>
                           </tr>
                       </tbody>
                     </table>
@@ -78,6 +80,14 @@ export default {
       });
       console.log(id);
       console.log(index);  
+    },
+    EditUser(id, index){
+      
+      axios.post(`http://localhost:8080/demo/add?name=`+this.users[index].name+`&email=`+this.users[index].email)
+      .then((response) => {
+               console.log(response);
+            });
+            //console.log("this.name: " + this.name, "this.email: " + this.email, this.users[index].name, this.users[index].email);
     }
   },
   created() {
